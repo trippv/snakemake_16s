@@ -10,7 +10,7 @@ rule import_qiime2:
     output:
         qiime2_artifact = f"results/{run_name}/artifacts/paired-end-demux-trimmed.qza"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{run_name}/artifacts
@@ -33,7 +33,7 @@ rule summarize_demux:
     output:
         demux_qzv = f"results/{run_name}/artifacts/paired-end-demux-trimmed.qzv"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         qiime demux summarize \

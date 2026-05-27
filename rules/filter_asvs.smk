@@ -14,7 +14,7 @@ if config["filter_asvs"]["apply"]:
         params:
             where = config["filter_asvs"]["where"]
         conda: 
-            "env/qiime2.yaml"
+            "../envs/qiime2.yaml"
         shell:
             """
             # Filter samples by location

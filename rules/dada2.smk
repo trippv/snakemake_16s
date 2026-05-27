@@ -27,7 +27,7 @@ rule dada2:
     log:
         "results/{run_name}/logs/clustering/dada2.log",
     conda:
-        "qiime2-2025.7" 
+        "../envs/qiime2.yaml" 
     shell:
         "qiime dada2 denoise-paired "
         "--i-demultiplexed-seqs {input} "
@@ -65,7 +65,7 @@ rule visualize_dada2:
         rep_seqs_viz="results/{run_name}/artifacts/rep-seqs.qzv",
         stats_viz="results/{run_name}/artifacts/stats.qzv"
     conda:
-        "qiime2-2025.7"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{run_name}/artifacts
@@ -96,7 +96,7 @@ rule export_dada2_stats:
     output:
         metadata_tsv = "results/{run_name}/artifacts/stats_export/metadata.tsv"
     conda:
-        "qiime2-2025.7"
+        "../envs/qiime2.yaml"
     shell:
         """
         qiime tools export \
@@ -115,7 +115,7 @@ rule export_rep_seqs:
         summary="results/{run_name}/artifacts/rep_seqs_export/seven_number_summary.tsv"
 
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{run_name}/artifacts/rep_seqs_export
@@ -135,7 +135,7 @@ rule tabulate_sample_frequency:
         qza = "results/{run_name}/artifacts/sample_frequencies.qza",
         metadata ="results/{run_name}/artifacts/sample_frequencies_export/metadata.tsv"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         qiime feature-table tabulate-sample-frequencies \
@@ -163,7 +163,7 @@ rule clean_exported_tables:
         stats_clean="results/{run_name}/artifacts/clean/stats_clean.tsv",
         summary_clean="results/{run_name}/artifacts/clean/summary_clean.tsv"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     log:
         "results/{run_name}/logs/clean_tables.log"
     script:
@@ -180,7 +180,7 @@ rule checkpoint_dada2:
     params:
         config = "config/multiqc_config.yaml"  # path to your custom config
     conda:
-        "env/multiqc.yaml"
+        "../envs/qc.yaml"
     shell:
         """
         
@@ -200,7 +200,7 @@ rule export_asv_counts:
         biom="results/{run_name}/artifacts/asv_counts/feature-table.biom",
         tsv="results/{run_name}/artifacts/asv_counts/feature-table.tsv"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{wildcards.run_name}/artifacts/asv_counts
@@ -231,7 +231,7 @@ rule generate_abundance_tables:
         asv_seq="results/{run_name}/tables/ASV_abundance_sequence.txt",
         taxa_seq="results/{run_name}/tables/Taxonomy_sequence.txt"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{wildcards.run_name}/tables

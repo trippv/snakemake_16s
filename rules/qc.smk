@@ -9,7 +9,7 @@ rule fastqc:
     output:
         directory(FASTQC_DIR)
     conda:
-        "env/qc.yaml"
+        "../envs/qc.yaml"
     threads: 4
     shell:
         """
@@ -38,7 +38,7 @@ rule cutadapt:
     log:
         "results/{run_name}/logs/cutadapt/cutadapt_{sample}.log"
     conda:
-        "env/qc.yaml"
+        "../envs/qc.yaml"
     threads: 4
     shell:
         """
@@ -94,7 +94,7 @@ rule checkpoint_pre_import:
         fastqc_report = f"results/{run_name}/checkpoint/checkpoint_fastqc.html",
         cutadapt_report = f"results/{run_name}/checkpoint/checkpoint_cutadapt.html"
     conda:
-        "env/qc.yaml"  # MultiQC suele estar en este entorno
+        "../envs/qc.yaml"  # MultiQC suele estar en este entorno
     threads: 4
     shell:
         """

@@ -12,7 +12,7 @@ rule alpha_rarefaction_curve:
     params:
         max_depth = config["depth"]  # Adjust based on your data
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         qiime diversity alpha-rarefaction \
@@ -49,7 +49,7 @@ rule core_metrics:
         threads = 8,
         logs = "results/{run_name}/logs/core_metrics.log"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
             qiime diversity core-metrics-phylogenetic \
