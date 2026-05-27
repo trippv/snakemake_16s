@@ -1,0 +1,42 @@
+SampleID	index_1	index_2	SampleType	Species	S_index	N_index	project	Location	group	Run	Longitud_CM	No Organismo	Sexo	Tejido	Tipo muestra	Fecha Colecta	Fecha muestra tejido	observaciones tejido
+Y49	TAGGCATG	AAGGAGTA	gut	Sphyrna lewini	S507	N706	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	80	3	hembra	Estomago	Raspado epitelio	29/10/21	23/05/2023	Muy poco materia. Los pliegues eran muy visibles
+Y47	GGACTCCT	AAGGAGTA	gut	Sphyrna lewini	S507	N705	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	79	2	hembra	Estomago	Raspado epitelio	29/10/21	23/05/2023	lleno de materia organica con algunas vertebras y restos duros
+Y41	TCCTGAGC	AAGGAGTA	gut	Sphyrna lewini	S507	N704	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	74	7	hembra	Estomago	Raspado epitelio	28/09/2021	17/05/2023	Mucha materia organica y fragmentos de vertebras
+Y39	AGGCAGAA	AAGGAGTA	gut	Sphyrna lewini	S507	N703	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	100	3	macho	Estomago	Raspado epitelio	27/09/2022	12/5/2023	ya se habia colectado antes
+Y37	CGTACTAG	AAGGAGTA	gut	Sphyrna lewini	S507	N702	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	101	2	macho	Estomago	Raspado epitelio	28/09/2022	12/5/2023	Ya se habia colectado antes
+Y35	TAAGGCGA	AAGGAGTA	gut	Sphyrna lewini	S507	N701	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	100	1	macho	Estomago	Raspado epitelio	29/09/2022	12/5/2023	Ya se habia colectado antes
+Y31	ATCTCAGG	ACTGCATA	gut	Sphyrna lewini	S506	N715	16s	La Paz	Sphyrna lewini-La Paz	Run27	80	11	macho	Estomago	Raspado epitelio	17/03/2023	9/5/2023	
+Y29	GCTCATGA	ACTGCATA	gut	Sphyrna lewini	S506	N714	16s	La Paz	Sphyrna lewini-La Paz	Run27	90	9	macho	Estomago	Raspado epitelio	17/03/2023	9/5/2023	
+Y27	GTAGAGGA	ACTGCATA	gut	Sphyrna lewini	S506	N712	16s	La Paz	Sphyrna lewini-La Paz	Run27	91	unk	hembra	Estomago	Raspado epitelio	17/03/2023	9/5/2023	
+Y25	AAGAGGCA	ACTGCATA	gut	Sphyrna lewini	S506	N711	16s	La Paz	Sphyrna lewini-La Paz	Run27	89	4	macho	Estomago	Raspado epitelio en etanol absoluto	17/03/2023	9/5/2023	
+Y24	CGAGGCTG	ACTGCATA	gut	Sphyrna lewini	S506	N710	16s	La Paz	Sphyrna lewini-La Paz	Run27	89	4	macho	Estomago	Raspado epitelio	17/03/2023	9/5/2023	lleno de sardina
+Y21	CTCTCTAC	ACTGCATA	gut	Sphyrna lewini	S506	N707	16s	La Paz	Sphyrna lewini-La Paz	Run27	86	8	hembra	Estomago	Raspado epitelio	17/03/2023	9/5/2023	vacio
+S40	TCGACGTC	CGTCTAAT	gut	Squatina californica	S510	N729	16s	Santa Rosalia	Squatina californica-Santa Rosalia	Run27	80	31	macho	Estomago	Raspado epitelio	18/10/2022	15/06/2023	restos de pez
+S37	TGCAGCTA	CGTCTAAT	gut	Squatina californica	S510	N728	16s	Santa Rosalia	Squatina californica-Santa Rosalia	Run27	82	16	macho	Estomago	Raspado epitelio	18/10/2022	15/06/2023	vacio
+S35	TCGACGTC	CTAAGCCT	gut	Squatina californica	S508	N729	16s	Santa Rosalia	Squatina californica-Santa Rosalia	Run27	70	36	hembra	Estomago	Raspado epitelio	18/10/2022	15/06/2023	restos de peces
+S32	TGCAGCTA	CTAAGCCT	gut	Squatina californica	S508	N728	16s	Santa Rosalia	Squatina californica-Santa Rosalia	Run27	80	48	macho	Estomago	Raspado epitelio	17/10/2022	9/5/2023	vacio
+S30	CGATCAGT	CTAAGCCT	gut	Squatina californica	S508	N727	16s	La Paz	Squatina californica-La Paz	Run27	86	1	hembra	Estomago	Raspado epitelio	15/03/2023	26/04/2023	
+S28	TCGACGTC	AAGGAGTA	gut	Squatina californica	S507	N729	16s	La Paz	Squatina californica-La Paz	Run27	69	4	macho	Estomago	Raspado epitelio	15/03/2023	26/04/2023	
+S25	TGCAGCTA	AAGGAGTA	gut	Squatina californica	S507	N728	16s	La Paz	Squatina californica-La Paz	Run27	89	6	hembra	Estomago	Raspado epitelio	15/03/2023	26/04/2023	
+S22	CGATCAGT	AAGGAGTA	gut	Squatina californica	S507	N727	16s	La Paz	Squatina californica-La Paz	Run27	78.6	5	hembra	Estomago	Raspado epitelio	15/03/2023	26/04/2023	
+S19	CCTAAGAC	AAGGAGTA	gut	Squatina californica	S507	N726	16s	La Paz	Squatina californica-La Paz	Run27	55	3	macho	Estomago	Raspado epitelio	15/03/2023	26/04/2023	Estomago lleno de materia organica
+R72	GGACTCCT	CTAAGCCT	gut	Rhizoprionodon longurio	S508	N705	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	87	1	hembra	Estomago	Raspado epitelio	14/11/2022	1/6/2023	ya estaba abierto
+R69	GGACTCCT	ACTGCATA	gut	Rhizoprionodon longurio	S506	N705	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	57	11	macho	Estomago	Raspado epitelio	14/11/2022	26/05/2023	ya estaba abierto
+R66	TCCTGAGC	ACTGCATA	gut	Rhizoprionodon longurio	S506	N704	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	48	3	macho	Estomago	Raspado epitelio	14/11/2022	26/05/2023	
+R63	AGGCAGAA	ACTGCATA	gut	Rhizoprionodon longurio	S506	N703	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	60	7	hembra	Estomago	Raspado epitelio	14/11/2022	26/05/2023	
+R60	TCCTGAGC	CTAAGCCT	gut	Rhizoprionodon longurio	S508	N704	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	55	10	macho	Estomago	Raspado epitelio	14/11/2022	26/05/2023	Contiene un pez de gran tamaño poco digerido. Materia organica muy liquida
+R58	AGGCAGAA	CTAAGCCT	gut	Rhizoprionodon longurio	S508	N703	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	60	4	macho	Estomago	Raspado epitelio	14/11/2022	26/05/2023	Estomago lleno con un pez y otras estructuras duras Materia organica muy liquida
+R55	CGTACTAG	CTAAGCCT	gut	Rhizoprionodon longurio	S508	N702	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	61	1	hembra	Estomago	Raspado epitelio	11/11/2022	26/05/2023	vacio
+R52	TAAGGCGA	CTAAGCCT	gut	Rhizoprionodon longurio	S508	N701	16s	La Paz	Rhizoprionodon longurio-La Paz	Run27	59	2	hembra	Estomago	Raspado epitelio	11/11/2022	26/05/2023	vacio
+R49	ATCTCAGG	AAGGAGTA	gut	Rhizoprionodon longurio	S507	N715	16s	Santa Rosalia	Rhizoprionodon longurio-Santa Rosalia	Run27	52	10	hembra	Estomago	Raspado epitelio	27/09/2022	23/05/2023	Contiene mucha materia organica
+R44	GCTCATGA	AAGGAGTA	gut	Rhizoprionodon longurio	S507	N714	16s	Santa Rosalia	Rhizoprionodon longurio-Santa Rosalia	Run27	115	1	hembra	Estomago	Raspado epitelio	28/09/2022	23/05/2023	vacio
+R42	GTAGAGGA	AAGGAGTA	gut	Rhizoprionodon longurio	S507	N712	16s	Santa Rosalia	Rhizoprionodon longurio-Santa Rosalia	Run27	107	2	hembra	Estomago	Raspado epitelio	27/09/2022	23/05/2023	lleno de materia organica muy liquida
+R40	AAGAGGCA	AAGGAGTA	gut	Rhizoprionodon longurio	S507	N711	16s	Santa Rosalia	Rhizoprionodon longurio-Santa Rosalia	Run27	52	12	hembra	Estomago	Raspado epitelio 	27/09/2022	23/05/2023	Con mucha materia organica y algunas vertebras
+N56	ACTGAGCG	ACTGCATA	gut	Narcine entemedor	S506	N724	16s	La Paz	Narcine entemedor-La Paz	Run27	52	1	hembra	Estomado	Raspado epitelio	17/09/2022	1/6/2023	ya estaba abierto
+N54	TAGCGCTC	ACTGCATA	gut	Narcine entemedor	S506	N723	16s	La Paz	Narcine entemedor-La Paz	Run27	56	2	hembra	Estomago	Raspado epitelio	17/09/2022	1/6/2023	ya estaba abierto
+N52	ATGCGCAG	ACTGCATA	gut	Narcine entemedor	S506	N722	16s	La Paz	Narcine entemedor-La Paz	Run27	72	4	unk	Estomago	Raspado epitelio	15/09/2022	1/6/2023	ya estaba abierto.vacio
+N49	TACGCTGC	ACTGCATA	gut	Narcine entemedor	S506	N721	16s	La Paz	Narcine entemedor-La Paz	Run27	52	3	unk	Estomago	Raspado epitelio	15/09/2022	1/6/2023	ya estaba abierto
+N47	CGGAGCCT	ACTGCATA	gut	Narcine entemedor	S506	N720	16s	Santa Rosalia	Narcine entemedor-Santa Rosalia	Run27	45.2	17	macho	Valvula espiral	corte epitelio	6/2/2020	19/05/2023	lleno de materia organica
+N43	GCGTAGTA	ACTGCATA	gut	Narcine entemedor	S506	N719	16s	Santa Rosalia	Narcine entemedor-Santa Rosalia	Run27	55	24	hembra	Estomago	Raspado epitelio	6/2/2020	19/05/2023	
+N30	GGAGCTAC	ACTGCATA	gut	Narcine entemedor	S506	N718	16s	Santa Rosalia	Narcine entemedor-Santa Rosalia	Run27	86	15	hembra	Estomago	Raspado epitelio	13/12/2019	12/5/2023	Ya se habia colectado antes
+N25	ACTCGCTA	ACTGCATA	gut	Narcine entemedor	S506	N716	16s	Santa Rosalia	Narcine entemedor-Santa Rosalia	Run27	56	2	hembra	Estomago	Corte epitelio	17/09/2022	23/09/2022	

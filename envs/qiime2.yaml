@@ -1,0 +1,11 @@
+name: qiime2
+
+channels:
+  - qiime2
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - qiime2=2025.7
+  - biom-format

@@ -1,0 +1,94 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample. It can be parsed easily via pandas.
+
+run_name: "run_09042026"   # 👈 Define aquí el nombre de la corrida
+samples_file: "config/samples_files_test.tsv" # file with path to samples reads
+metadata: "config/sample_metadata_test.tsv" # file with sample metadata
+
+# Databases for taxonomic classification
+database:
+  SILVA: True
+  SILVA_url: "https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/silva-138-99-nb-classifier.qza" # Pretrained database for SILVA
+  SILVA_path: "databases/silva-138-99-nb-classifier.qza" # Local path to pretrained database for SILVA
+
+# Forward and reverse adapters used for sequencing
+adapter1: TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG
+adapter2: GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG
+
+#Primertrimming parameters
+primertrimming:
+    forward: "CCTACGGGNGGCWGCAG"
+    reverse: "GACTACHVGGGTATCTAATCC" #"GGACTACHVGGGTWTCTAAT"
+    # Maximum allowed error rate
+    error_rate: 0.2 #default 0.1
+    # Remove multiple occurrences of an adapter if it is repeated, up to `times` times
+    rep_times: 1
+    # Require at least `overlap` bases of overlap between read and adapter for an adapter to be found
+    overlap: 5 #default 3
+    # Discard reads shorter than specified value
+    min_length: 100 #default 100
+
+dada2-paired:
+  # Position at which forward reads should be truncated at the 3' end due to low quality
+  trunc-len-f: 283 #anterior 280
+  # Position at which reverse reads should be truncated at the 3' end due to low quality
+  trunc-len-r: 205 #anteriors 180
+  # Position at which forward reads should be truncated at the 5' end due to low quality
+  trim-left-f: 0 #default 0
+  # Position at which reverse reads should be truncated at the 5' end due to low quality
+  trim-left-r: 0 #default 0
+  # Forward reads with number of expected errors higher than this value will be discarded
+  max-ee-f: 10 #default 2
+  # Reverse reads with number of expected errors higher than this value will be discarded.
+  max-ee-r: 12 #default 2
+  # Reads are truncated at the first instance of a quality score less than or equal to this value
+  trunc-q: 2 #default 2
+  # The minimum length of the overlap required for merging the forward and reverse reads
+  min-overlap: 20 #anterior 20
+  # The method used to pool samples for denoising ('independent', 'pseudo')
+  pooling-method: 'independent'
+  # The method used to remove chimeras ('none', 'consensus', 'pooled')
+  chimera-method: 'consensus' #default 'consensus'
+  # The minimum abundance of potential parents of a sequence being tested as chimeric, expressed as a 
+  # fold-change versus the abundance of the sequence being tested
+  min-fold-parent-over-abundance: 1.0
+  # The number of reads to use when training the errormodel
+  n-reads-learn: 1000000
+
+######### parte en proceso de edicion ###########
+
+# Filtros aplicados a los rep-seqs. Esto es para filtrar secuencias de algun sitio en especifico o de algún tamaño determinado
+
+filter_asvs:
+  apply: false          # si es false, no se ejecuta la regla
+  where: "'[Location] IN (\"Santa Rosalia\", \"La Paz\")'" # definier parametro que se quiere filtrar en formato SQL
+
+###################################
+
+# Filtros de las tablas de ASVs (taxonomia, frecuencia, etc)
+taxonomy_filter:
+  exclude: "mitochondria,chloroplast,Unassigned,Eukaryota"  # Taxa to exclude from the taxonomy table
+
+# Parameters for the different filtering steps
+filtering:
+  # Relative threshold for the abundance filtering
+  relative-abundance-filter: 0.001
+  # Minimum length of a sequence to be retained
+  min-seq-length: 200
+  # Minimum quality score for sequences to pass filter
+  phred-score: 20
+  # Maximum number of undetermined base calls ("N")
+  max-ambiguity: 50
+  # The minimum length that a sequence read can be following truncation and still be retained
+  min-length-frac: 0.75
+  # Increasing this value tends to reduce the number of false positives and to decrease sensitivity.
+  chimera-minh: 0.35
+  # Percentual identity between query sequence and reference human genome
+  perc-identity: 0.93
+  # Percent of query sequence that must align to reference in order to be accepted as a hit
+  perc-query-aligned: 0.93
+
+# alpha and beta diversity parameters
+depth: 20000  # Rarefaction depth for diversity analyses
+group_column: "group"  # Column in metadata to group samples for diversity analyses

@@ -1,0 +1,106 @@
+custom_data:
+  dada:
+    section_name: "DADA2 Results"
+    plot_type: "generalstats"
+    description: "Summarizes per-sample read retention across DADA2 processing steps. It shows how many reads were retained after filtering, denoising, merging, and chimera removal."
+    pconfig:
+      id: "dada2_results"
+      title: "DADA2 Summary (Read Retention)"
+    headers:
+      input:
+        min: 0
+        scale: "BuPu"
+      filter_percent:
+        max: 100
+        min: 0
+        scale: "RdYlGn"
+        suffix: "%"
+      merged_percent:
+        max: 100
+        min: 0
+        scale: "RdYlGn"
+        suffix: "%"
+      nonchimeric_percent:
+        max: 100
+        min: 0
+        scale: "RdYlGn"
+        suffix: "%"
+
+  feature_length:
+    file_format: "tsv"
+    plot_type: "box"
+    section_name: "Feature Length Distribution"
+    description: "Length of representative sequences (ASVs/OTUs) per sample."
+    pconfig:
+      id: "feature_length"
+      title: "Feature Length Distribution"
+      xlab: "Samples"
+      ylab: "Sequence Length"
+
+  repseqs:
+    file_format: "tsv"
+    plot_type: "table"
+    section_name: "Representative Sequences Summary"
+    description: "Summary table of representative sequences. Counts correspond to the number of unique features (ASVs/OTUs) found."
+    pconfig:
+      id: "repseqs_summary"
+      title: "Summary of Representative Sequences"
+      min: 0
+
+  feature_freq:
+    file_format: "tsv"
+    plot_type: "box"
+    section_name: "Feature Frequency Distribution"
+    description: "Distribution of feature frequencies (read counts) across samples."
+    pconfig:
+      id: "feature_freq_boxplot"
+      title: "Sequencing Depth per Sample"
+      xlab: "Samples"
+      ylab: "Read Counts"
+
+  frequency:
+    file_format: "tsv"
+    plot_type: "bargraph"
+    section_name: "Frequency per Sample"
+    description: "Per-sample total read frequency (sequencing depth)."
+    categories:
+      Frequency:
+        name: "Frequency"
+        color: "#c3e0e5"
+    pconfig:
+      id: "frequency_per_sample"
+      title: "Frequency per Sample"
+      ylab: "Observed Frequency"
+      xlab: "Samples"
+
+  features:
+    file_format: "tsv"
+    plot_type: "bargraph"
+    section_name: "Features per Sample"
+    description: "Number of observed features (ASVs/OTUs) per sample."
+    categories:
+      Features:
+        name: "Features"
+        color: "#a3d9b1"
+    pconfig:
+      id: "features_per_sample"
+      title: "Features per Sample"
+      ylab: "Observed Features"
+      xlab: "Samples"
+
+# ────────────────────────────────────────────────
+# Data source mapping
+# ────────────────────────────────────────────────
+sp:
+  dada:
+    fn: "stats_clean.tsv"
+  feature_length:
+    fn: "repseqs_clean.tsv"
+  repseqs:
+    fn: "summary_clean.tsv"
+  feature_freq:
+    fn: "frequencies_clean_box.tsv"
+  frequency:
+    fn: "frequencies_clean.tsv"
+  features:
+    fn: "features_clean.tsv"
