@@ -15,7 +15,7 @@ rule alpha_significance:
     params:
         logs = "results/{run_name}/logs/alpha_significance.log"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         mkdir -p results/{wildcards.run_name}/alpha_significance
@@ -55,7 +55,7 @@ rule beta_group_significance:
     params:
         group_column=config["group_column"]
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     log:
         "results/{run_name}/logs/beta_group_significance.log"
     shell:

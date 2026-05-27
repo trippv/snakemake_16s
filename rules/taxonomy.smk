@@ -14,7 +14,7 @@ if (
             taxonomy_viz = "results/{run_name}/artifacts/taxonomy.qzv"
         threads: 6
         conda:
-            "env/qiime2.yaml"
+            "../envs/qiime2.yaml"
         shell:
             """
             qiime feature-classifier classify-sklearn \
@@ -38,7 +38,7 @@ rule phylogenetic_tree:
         rooted_tree = "results/{run_name}/artifacts/rooted-tree.qza",
         unrooted_tree = "results/{run_name}/artifacts/unrooted-tree.qza"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         qiime phylogeny align-to-tree-mafft-fasttree \
@@ -63,7 +63,7 @@ rule taxonomy_barplot:
     output:
         directory("results/{run_name}/taxonomy_barplots")
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     log:
         "results/{run_name}/logs/taxonomy_barplot.log"
     shell:
@@ -103,7 +103,7 @@ rule filter_taxonomy:
     log:
         "results/{run_name}/logs/filter_taxonomy.log"
     conda:
-        "env/qiime2.yaml"
+        "../envs/qiime2.yaml"
     shell:
         """
         echo "Filtering unwanted taxa: {params.exclude}" > {log}
