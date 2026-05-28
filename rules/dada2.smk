@@ -186,8 +186,7 @@ rule checkpoint_dada2:
         
         multiqc results/{wildcards.run_name}/artifacts/clean \
             --config {params.config} \
-            --outdir results/{wildcards.run_name}/checkpoint \
-            --filename results/{run_name}/checkpoint/dada2_qc_report.html" \
+            --filename "results/{run_name}/checkpoint/dada2_qc_report.html" \
             --force \
             --title "Checkpoint report: DADA2 - {wildcards.run_name}"
         """
@@ -255,6 +254,10 @@ rule generate_abundance_tables:
         qiime tools export \
             --input-path {input.taxonomy} \
             --output-path results/{wildcards.run_name}/tables/tmp/taxonomy
+
+        qiime tools export \
+            --input-path {input.rooted_tree} \
+            --output-path results/{wildcards.run_name}/tables/tmp/tree
 
         # copy phylogenetic tree
         cp results/{wildcards.run_name}/tables/tmp/tree/tree.nwk \

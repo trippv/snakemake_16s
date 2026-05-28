@@ -14,7 +14,7 @@ El flujo realiza:
    * taxonomía
    * árbol filogenético
 
-Los resultados pueden utilizarse directamente en plataformas como MicrobiomeAnalyst.
+Los resultados pueden utilizarse directamente en plataformas como [MicrobiomeAnalyst](https://www.microbiomeanalyst.ca/).
 
 ---
 
@@ -98,18 +98,18 @@ mamba activate snakemake
 Ejecutar el workflow:
 
 ```bash
-snakemake --use-conda --cores 4
+snakemake --use-conda --cores 8
 ```
 
 Donde:
 
 * `--use-conda` permite instalar automáticamente todas las dependencias
-* `--cores 4` utiliza 4 núcleos del procesador
+* `--cores 8` utiliza 8 núcleos del procesador
 
 Si la computadora tiene menos memoria, usar:
 
 ```bash
-snakemake --use-conda --cores 2
+snakemake --use-conda --cores 4
 ```
 
 La primera ejecución puede tardar bastante tiempo porque Snakemake instalará automáticamente todos los programas necesarios.
@@ -131,6 +131,103 @@ snakemake_16s/
 
 ---
 
+## Configuración
+
+Antes de ejecutar el flujo de trabajo, es necesario preparar los archivos de configuración ubicados en la carpeta `config/`.
+
+---
+
+## 1. Archivo de muestras (`samples_files.tsv`)
+
+Este archivo contiene la ubicación de los archivos FASTQ crudos para cada muestra.
+
+El archivo **debe estar separado por tabuladores (`.tsv`)** y contener las siguientes columnas:
+
+* `sample_id`
+* `forward-absolute-filepath`
+* `reverse-absolute-filepath`
+* `file_extension`
+
+Ejemplo:
+
+```tsv id="44yhgn"
+sample_id	forward-absolute-filepath	reverse-absolute-filepath	file_extension
+N43	/home/user/project/rawreads/N43_R1.fastq.gz	/home/user/project/rawreads/N43_R2.fastq.gz	gz
+N47	/home/user/project/rawreads/N47_R1.fastq.gz	/home/user/project/rawreads/N47_R2.fastq.gz	gz
+R58	/home/user/project/rawreads/R58_R1.fastq.gz	/home/user/project/rawreads/R58_R2.fastq.gz	gz
+```
+
+### Notas importantes
+
+* Las rutas de los archivos deben ser rutas absolutas.
+* Los archivos forward y reverse deben corresponder a la misma muestra.
+* Las extensiones soportadas incluyen:
+
+  * `gz`
+  * `fastq`
+  * `fq`
+
+---
+
+## 2. Archivo de metadatos (`sample_metadata.tsv`)
+
+Este archivo contiene la información asociada a cada muestra y será utilizado en los análisis de diversidad y visualización.
+
+El archivo **debe estar separado por tabuladores (`.tsv`)**.
+
+La primera columna debe contener los identificadores de muestra que coincidan con la columna `sample_id` del archivo `samples_files.tsv`.
+
+Ejemplo:
+
+```tsv id="ps02z7"
+SampleID	index_1	index_2	SampleType	Species	S_index	N_index	project	Location	group	Run	Longitud_CM	No Organismo	Sexo	Tejido	Tipo muestra	Fecha Colecta	Fecha muestra tejido	observaciones tejido
+Y49	TAGGCATG	AAGGAGTA	gut	Sphyrna lewini	S507	N706	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	80	3	hembra	Estomago	Raspado epitelio	29/10/21	23/05/2023	Muy poco materia. Los pliegues eran muy visibles
+Y47	GGACTCCT	AAGGAGTA	gut	Sphyrna lewini	S507	N705	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	79	2	hembra	Estomago	Raspado epitelio	29/10/21	23/05/2023	lleno de materia organica con algunas vertebras y restos duros
+Y41	TCCTGAGC	AAGGAGTA	gut	Sphyrna lewini	S507	N704	16s	Santa Rosalia	Sphyrna lewini-Santa Rosalia	Run27	74	7	hembra	Estomago	Raspado epitelio	28/09/2021	17/05/2023	Mucha materia organica y fragmentos de vertebras
+```
+
+### Notas importantes
+
+* Los nombres de las muestras deben coincidir entre:
+
+  * `samples_files.tsv`
+  * `sample_metadata.tsv`
+* Se pueden agregar columnas adicionales libremente.
+* Evita usar espacios o caracteres especiales en los IDs de muestra.
+
+---
+
+
+
+
+Archivo de configuración (config/config.yaml)
+
+El flujo de trabajo se controla mediante el archivo:
+
+config/config.yaml
+
+En este archivo se definen:
+
+    *   El nombre de la corrida
+    *   Los archivos de entrada
+    *   Parámetros de calidad y filtrado
+    *   Configuración de cutadapt
+    *   Parámetros de DADA2
+    *   Opciones de filtrado de ASVs
+    *   Base de datos taxonómica utilizada
+
+Ejemplo básico:
+```
+# Nombre de la corrida
+run_name: "run_prueba"
+
+# Archivo con las rutas de los FASTQ
+samples_file: "config/samples_files_test.tsv"
+```
+
+# Metadata de las muestras
+metadata: "config/sample_metadata_test.tsv"
+Parámetros que pu
 
 # Ejecutar el workflow por etapas (checkpoints)
 
