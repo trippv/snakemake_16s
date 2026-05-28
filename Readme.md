@@ -223,11 +223,11 @@ run_name: "run_prueba"
 
 # Archivo con las rutas de los FASTQ
 samples_file: "config/samples_files_test.tsv"
-```
 
 # Metadata de las muestras
 metadata: "config/sample_metadata_test.tsv"
-Parámetros que pu
+```
+
 
 # Ejecutar el workflow por etapas (checkpoints)
 
