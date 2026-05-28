@@ -772,3 +772,4 @@ dependencies:
 - zlib-ng=2.2.4
 - zstandard=0.23.0
 - zstd=1.5.6
+- biom-format

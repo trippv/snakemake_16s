@@ -90,5 +90,5 @@ filtering:
   perc-query-aligned: 0.93
 
 # alpha and beta diversity parameters
-depth: 20000  # Rarefaction depth for diversity analyses
+depth: 2000  # Rarefaction depth for diversity analyses
 group_column: "group"  # Column in metadata to group samples for diversity analyses

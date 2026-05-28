@@ -186,7 +186,9 @@ rule checkpoint_dada2:
         
         multiqc results/{wildcards.run_name}/artifacts/clean \
             --config {params.config} \
-            --filename {output.html} \
+            --outdir results/{wildcards.run_name}/checkpoint \
+            --filename results/{run_name}/checkpoint/dada2_qc_report.html" \
+            --force \
             --title "Checkpoint report: DADA2 - {wildcards.run_name}"
         """
 
@@ -224,12 +226,16 @@ rule generate_abundance_tables:
     input:
         table="results/{run_name}/artifacts/table.qza",
         repseq="results/{run_name}/artifacts/rep-seqs.qza",
-        taxonomy="results/{run_name}/artifacts/taxonomy.qza"
+        taxonomy="results/{run_name}/artifacts/taxonomy.qza",
+        rooted_tree="results/{run_name}/artifacts/rooted-tree.qza"
     output:
         asv="results/{run_name}/tables/ASV_abundance_featureID.txt",
         taxa="results/{run_name}/tables/Taxonomy_featureID.txt",
         asv_seq="results/{run_name}/tables/ASV_abundance_sequence.txt",
-        taxa_seq="results/{run_name}/tables/Taxonomy_sequence.txt"
+        taxa_seq="results/{run_name}/tables/Taxonomy_sequence.txt",
+        tree="results/{run_name}/tables/rooted-tree.nwk"
+    params:
+        metadata=config["metadata"]
     conda:
         "../envs/qiime2.yaml"
     shell:
@@ -250,6 +256,10 @@ rule generate_abundance_tables:
             --input-path {input.taxonomy} \
             --output-path results/{wildcards.run_name}/tables/tmp/taxonomy
 
+        # copy phylogenetic tree
+        cp results/{wildcards.run_name}/tables/tmp/tree/tree.nwk \
+           {output.tree}
+
         # convert biom to tsv
         biom convert \
             -i results/{wildcards.run_name}/tables/tmp/table/feature-table.biom \
@@ -261,6 +271,6 @@ rule generate_abundance_tables:
             results/{wildcards.run_name}/tables/tmp/feature-table.tsv \
             results/{wildcards.run_name}/tables/tmp/repseq/dna-sequences.fasta \
             results/{wildcards.run_name}/tables/tmp/taxonomy/taxonomy.tsv \
-            {workflow.basedir}/config/sample_metadata_complete.tsv \
+            {params.metadata} \
             results/{wildcards.run_name}/tables
         """
