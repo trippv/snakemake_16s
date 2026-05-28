@@ -204,17 +204,17 @@ Archivo de configuración (config/config.yaml)
 
 El flujo de trabajo se controla mediante el archivo:
 
-config/config.yaml
+`config/config.yaml`
 
 En este archivo se definen:
 
-    *   El nombre de la corrida
-    *   Los archivos de entrada
-    *   Parámetros de calidad y filtrado
-    *   Configuración de cutadapt
-    *   Parámetros de DADA2
-    *   Opciones de filtrado de ASVs
-    *   Base de datos taxonómica utilizada
+  *   El nombre de la corrida
+  *   Los archivos de entrada
+  *   Parámetros de calidad y filtrado
+  *   Configuración de cutadapt
+  *   Parámetros de DADA2
+  *   Opciones de filtrado de ASVs
+  *   Base de datos taxonómica utilizada
 
 Ejemplo básico:
 ```
