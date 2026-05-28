@@ -1,11 +1,26 @@
-name: qiime2
-
 channels:
-  - qiime2
+  - https://packages.qiime2.org/qiime2/2025.4/amplicon/released
   - conda-forge
   - bioconda
-  - defaults
 
 dependencies:
-  - qiime2=2025.7
-  - biom-format
+  - python=3.10
+
+  # core
+  - qiime2=2025.4
+  - q2cli=2025.4
+
+  # plugins que sí usarás
+  - q2-demux=2025.4
+  - q2-dada2=2025.4
+  - q2-feature-table=2025.4
+  - q2-feature-classifier=2025.4
+  - q2-taxa=2025.4
+  - q2-diversity=2025.4
+  - q2-phylogeny=2025.4
+
+  # utilidades
+  - cutadapt
+  - vsearch
+  - fasttree
+  - mafft
