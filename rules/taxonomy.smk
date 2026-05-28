@@ -1,14 +1,34 @@
+# ===============================================================
+# RULE: DOWNLOAD SILVA DATABASE
+# Descarga automáticamente el clasificador SILVA si no existe
+# ===============================================================
 
-##### Taxonomic Classification with SILVA
+if config["database"]["SILVA"] == True:
 
-if (
-    config["database"]["SILVA"] == True,
-):
+    rule download_silva:
+        output:
+            classifier = config["database"]["SILVA_path"]
+        params:
+            url = config["database"]["SILVA_url"]
+        conda:
+            "../envs/utils.yaml"
+        shell:
+            """
+            mkdir -p databases
+
+            wget -O {output.classifier} {params.url}
+            """
+
+
+    # ===============================================================
+    # RULE: ASSIGN TAXONOMY
+    # Clasificación taxonómica con SILVA
+    # ===============================================================
 
     rule assign_taxonomy:
         input:
             rep_seqs = "results/{run_name}/artifacts/rep-seqs.qza",
-            classifier = config["database"]["SILVA_path"]
+            classifier = rules.download_silva.output.classifier
         output:
             taxonomy = "results/{run_name}/artifacts/taxonomy.qza",
             taxonomy_viz = "results/{run_name}/artifacts/taxonomy.qzv"
@@ -26,7 +46,6 @@ if (
               --m-input-file {output.taxonomy} \
               --o-visualization {output.taxonomy_viz}
             """
-
 # ===============================================================
 # RULE: PHYLOGENY
 # Construye árboles filogenéticos de las ASVs para métricas de diversidad filogenética
